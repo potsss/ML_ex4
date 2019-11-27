@@ -92,11 +92,15 @@ Delta2 = delta3' * a2;
 Theta1_grad = 1/m * Delta1;
 Theta2_grad = 1/m * Delta2;
 
+regularization_1 = lambda / m * Theta1;
+regularization_2 = lambda / m * Theta2;
 
 
+regularization_1(:, 1) = zeros(size(regularization_1, 1), 1);
+regularization_2(:, 1) = zeros(size(regularization_2, 1), 1);
 
-
-
+Theta1_grad = Theta1_grad + regularization_1;
+Theta2_grad = Theta2_grad + regularization_2;
 
 
 
